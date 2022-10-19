@@ -1,0 +1,26 @@
+---Create a clothing store database
+
+
+CREATE TABLE nikeclothes (id INTEGER PRIMARY KEY, name TEXT, color TEXT, size TEXT, rating INTEGER, price INTEGER);
+INSERT INTO nikeclothes VALUES 
+(1,"hat", "blue", "small", 5, 7), 
+(2,"hat", "blue", "medium", 5, 7),
+(3,"hat", "blue", "large", 5,7),
+(4,"shirt", "grey", "small",5,10),
+(5,"shirt","grey","medium",5,10),
+(6,"shirt","grey","large",5,10),
+(7,"pants","black","small",5,15),
+(8,"pants","black","medium",5,15),
+(9,"pants","black","large",5,15),
+(10,"socks","white","small",5,3),
+(11,"socks","white","medium",5,3),
+(12,"socks","white","large",5,3),
+(13,"coat","brown","small",5,20),
+(14,"coat","brown","medium",5,20),
+(15,"coat","brown","medium",5,20);
+
+---Display the database ordered by price
+SELECT * FROM nikeclothes ORDER BY price;
+
+---Display the database sum of all clothing inventory
+SELECT SUM(price) FROM nikeclothes;
