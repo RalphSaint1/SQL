@@ -1,3 +1,4 @@
+--- Create an NBA player states database
 
 
 CREATE TABLE players(
@@ -69,33 +70,40 @@ INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Donovan Mitchell','Utah Jazz','West','Mar 4, 2019','SG','6''3',215,22,2017,1,'2018-2019',2019,'Louisville',0.5,190,97,0);
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Bojan Bogdanovic','Indiana Pacers','East','Feb 11, 2019','F','6''8',216,29,2011,4,'2018-2019',2019,'KK Cibona (Croatia)',0.5,203,98,0);
 
-
+---Display the database order for the average, maximum, and minimum height of all players
 select height, avg(height) as avg_height from players;
 select height, max(height) as max_height from players;
 select height, Min(height) as min_height from players;
 
+---Display the age of all the players where their average weight is over 180 pounds
 select age, avg(weight) as avg_weight from players
 group by weight
 having avg_weight < 180;
 
+---Display the maximum and minimum weight of the heaviest and lightest players
 select weight, max(weight) as max_weight from players;
 select weight, min(weight) as min_weight from players;
 
+---Display the height if all the players with and age above 24
 select height, avg(age) as avg_age from players
 group by height
 having avg_age < 24;
 
+---Display the maximum and minimum age of oldest and youngest players
 select age, max(age) as max_age from players;
 select age, min(age) as min_age from players;
 
+---Display the age of the players whose weight is over 260 pounds or whose weight is under 180 pounds
 select player, age from players where weight > 260 or weight < 180;
 
+---Display the palyers who are over the age of 30 and whose weight is over 240 pounds
 select player from players where age >30 and weight >240;
 
+---Display all the players under 25 as young athletes, older 25 as old athletes, and players 25 as prime athletes
 select age,
 case
 when age > 25 then "old athlete"
 when age < 25 then "young athlete"
 when age = 25 then "prime athlete age"
 end as "old vs young players"
-from players
+from players;
