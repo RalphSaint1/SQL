@@ -1,4 +1,4 @@
---- Create an NBA player states database
+---- Create an NBA player states database
 
 
 CREATE TABLE players(
